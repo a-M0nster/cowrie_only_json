@@ -28,11 +28,11 @@ class CowrieDailyLogFile(logfile.DailyLogFile):
             return '_'.join(map(str, self.toDate(tupledate)))
 
 
-# def logger():
-#     try:
-#         dir = CONFIG.get("honeypot", "log_path")
-#     except NoOptionError:
-#         dir = "log"
+def logger():
+    try:
+        dir = CONFIG.get("honeypot", "log_path")
+    except NoOptionError:
+        dir = "log"
 
-#     logfile = CowrieDailyLogFile("cowrie.log", dir)
-#     return textFileLogObserver(logfile, timeFormat='%Y-%m-%dT%H:%M:%S.%f%z')
+    logfile = CowrieDailyLogFile("cowrie.log", dir)
+    return textFileLogObserver(logfile, timeFormat='%Y-%m-%dT%H:%M:%S.%f%z')
